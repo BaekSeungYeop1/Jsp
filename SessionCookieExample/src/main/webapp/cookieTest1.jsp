@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Cookie cookie = new Cookie("name","hongkildong");
-    cookie.setMaxAge(600);
+    cookie.setMaxAge(600); // 쿠키의 만료시간 second
     response.addCookie(cookie);
 %>
 <html>

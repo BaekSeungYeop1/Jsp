@@ -23,6 +23,6 @@
   <input type="button" onclick="location.href='sessionSet.jsp'" value="세션 값 저장">
   <input type="button" onclick="location.href='sessionDel.jsp'" value="세션 값 삭제">
   <input type="button" onclick="location.href='sessionInvalidate.jsp'" value="세션 초기화">
-  <h3><%=name%>></h3>
+  <h3><%=name%></h3>
 </body>
 </html>
