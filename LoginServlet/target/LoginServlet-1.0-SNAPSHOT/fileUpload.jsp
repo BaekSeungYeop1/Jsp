@@ -1,17 +1,10 @@
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%@ page import="java.util.Enumeration" %>
-<%@ page import="jdk.nashorn.internal.runtime.ECMAException" %><%--
-  Created by IntelliJ IDEA.
-  User: baek
-  Date: 2021-08-23
-  Time: 오후 5:31
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="jdk.nashorn.internal.runtime.ECMAException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   String uploadPath=request.getRealPath("/upload");
-
   int size = 10*1024*1024;
   String name="";
   String subject="";
@@ -19,26 +12,24 @@
   String filename2="";
   String origfilename1="";
   String origfilename2="";
-
   try{
     MultipartRequest multi = new MultipartRequest(request,
             uploadPath,
             size,
             "UTF-8",
             new DefaultFileRenamePolicy());
-
     name=multi.getParameter("name");
     subject=multi.getParameter("subject");
 
-    Enumeration files= multi.getParameterNames();
+    Enumeration files= multi.getFileNames();
 
     String file1 = (String)files.nextElement();
     filename1=multi.getFilesystemName(file1);
     origfilename1=multi.getOriginalFileName(file1);
 
     String file2 = (String)files.nextElement();
-    filename1=multi.getFilesystemName(file2);
-    origfilename1=multi.getOriginalFileName(file2);
+    filename2=multi.getFilesystemName(file2);
+    origfilename2=multi.getOriginalFileName(file2);
   }
   catch (Exception e){
     e.printStackTrace();
